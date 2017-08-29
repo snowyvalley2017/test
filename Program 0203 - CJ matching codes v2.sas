@@ -1,16 +1,4 @@
-LIBNAME IDS_STD TERADATA database=INSIGHT_STDVIEW_PVS user="C41621@LDAP" password=&password
-server=lshtd mode=teradata connection=global direct_sql=yes; options compress=yes ;
 
-LIBNAME IDS_INT TERADATA database=INSIGHT_INTVIEW_PVS user="C41621@LDAP" password=&password
-server=lshtd mode=teradata connection=global direct_sql=yes; options compress=yes ;
-
-libname c41621 oracle schema=&userid  path=CCDRPROD.CIGNA.COM user=&userid password=&password dbindex=no; *SASApp to Oracle;
-
-LIBNAME DL TERADATA user="c41621@LDAP"  password=&password
-database=dl_team_manocchia server=lshtd mode=teradata connection=global direct_sql=yes;
-
-libname extract '\\WDCNAP532\Reposit1\WA_New4\Crystal';
-libname perm '/sasem/sasusr/c41621';
 
 /*Use pac_one_to_three to match - CAP agent*/
 data agent;
@@ -92,10 +80,10 @@ run;
 
 
 /*START MATCHING ON 
-•	Claim diagnosis - diagnosis_code
-•	Customer gender - member_sex
-•	Claim date (similar timeframe) - paid_date - within 10 days
-•	Customer age band - customer_age within 5 yrs
+â€¢	Claim diagnosis - diagnosis_code
+â€¢	Customer gender - member_sex
+â€¢	Claim date (similar timeframe) - paid_date - within 10 days
+â€¢	Customer age band - customer_age within 5 yrs
 */
 
 data stdy_clm;
